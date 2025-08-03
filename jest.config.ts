@@ -1,4 +1,5 @@
 /**
+ * Cấu hình Jest cho dự án Next.js
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
@@ -6,36 +7,36 @@
 import type {Config} from 'jest';
 
 const config: Config = {
-  // All imported modules in your tests should be mocked automatically
+  // Tự động mock tất cả các module được import trong tests
   // automock: false,
 
-  // Stop running tests after `n` failures
+  // Dừng chạy tests sau khi có n lần fail
   // bail: 0,
 
-  // The directory where Jest should store its cached dependency information
+  // Thư mục Jest lưu cache thông tin dependencies
   // cacheDirectory: "C:\\Users\\pha4h\\AppData\\Local\\Temp\\jest",
 
-  // Automatically clear mock calls, instances, contexts and results before every test
+  // Tự động xóa mock calls, instances, contexts và results trước mỗi test
   clearMocks: true,
 
-  // Indicates whether the coverage information should be collected while executing the test
+  // Thu thập thông tin coverage khi chạy test
   collectCoverage: true,
 
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
+  // Mảng các pattern để chỉ định files cần thu thập coverage
   // collectCoverageFrom: undefined,
 
-  // The directory where Jest should output its coverage files
+  // Thư mục output coverage files
   coverageDirectory: "coverage",
 
-  // An array of regexp pattern strings used to skip coverage collection
+  // Mảng regex patterns để bỏ qua khi thu thập coverage
   // coveragePathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
   // ],
 
-  // Indicates which provider should be used to instrument code for coverage
+  // Provider để instrument code cho coverage
   coverageProvider: "v8",
 
-  // A list of reporter names that Jest uses when writing coverage reports
+  // Danh sách reporters Jest sử dụng khi viết coverage reports
   // coverageReporters: [
   //   "json",
   //   "text",
@@ -43,158 +44,171 @@ const config: Config = {
   //   "clover"
   // ],
 
-  // An object that configures minimum threshold enforcement for coverage results
+  // Cấu hình ngưỡng tối thiểu cho coverage results
   // coverageThreshold: undefined,
 
-  // A path to a custom dependency extractor
+  // Path đến custom dependency extractor
   // dependencyExtractor: undefined,
 
-  // Make calling deprecated APIs throw helpful error messages
+  // Báo lỗi khi gọi deprecated APIs
   // errorOnDeprecated: false,
 
-  // The default configuration for fake timers
+  // Cấu hình mặc định cho fake timers
   // fakeTimers: {
   //   "enableGlobally": false
   // },
 
-  // Force coverage collection from ignored files using an array of glob patterns
+  // Bắt buộc thu thập coverage từ ignored files
   // forceCoverageMatch: [],
 
-  // A path to a module which exports an async function that is triggered once before all test suites
+  // Path đến module export async function chạy trước tất cả test suites
   // globalSetup: undefined,
 
-  // A path to a module which exports an async function that is triggered once after all test suites
+  // Path đến module export async function chạy sau tất cả test suites
   // globalTeardown: undefined,
 
-  // A set of global variables that need to be available in all test environments
+  // Set global variables cần có trong tất cả test environments
   // globals: {},
 
-  // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+  // Số lượng workers tối đa để chạy tests
   // maxWorkers: "50%",
 
-  // An array of directory names to be searched recursively up from the requiring module's location
+  // Mảng tên thư mục được search recursively từ location của requiring module
   // moduleDirectories: [
   //   "node_modules"
   // ],
 
-  // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "mjs",
-  //   "cjs",
-  //   "jsx",
-  //   "ts",
-  //   "mts",
-  //   "cts",
-  //   "tsx",
-  //   "json",
-  //   "node"
-  // ],
+  // Mảng file extensions mà modules sử dụng
+  moduleFileExtensions: [
+    "js",
+    "mjs",
+    "cjs",
+    "jsx",
+    "ts",
+    "mts",
+    "cts",
+    "tsx",
+    "json",
+    "node"
+  ],
 
-  // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  // Map từ regex patterns đến module names để stub out resources
+  moduleNameMapper: {
+    // Resolve alias @/ thành đường dẫn src/
+    "^@/(.*)$": "<rootDir>/src/$1",
+    // Mock CSS files để tránh lỗi khi import CSS
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  },
 
-  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
+  // Mảng regex patterns matched với module paths trước khi 'visible' với module loader
   // modulePathIgnorePatterns: [],
 
-  // Activates notifications for test results
+  // Kích hoạt notifications cho test results
   // notify: false,
 
-  // An enum that specifies notification mode. Requires { notify: true }
+  // Enum chỉ định notification mode. Yêu cầu { notify: true }
   // notifyMode: "failure-change",
 
-  // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  // Preset được sử dụng làm base cho Jest configuration
+  preset: "ts-jest",
 
-  // Run tests from one or more projects
+  // Chạy tests từ một hoặc nhiều projects
   // projects: undefined,
 
-  // Use this configuration option to add custom reporters to Jest
+  // Sử dụng custom reporters cho Jest
   // reporters: undefined,
 
-  // Automatically reset mock state before every test
+  // Tự động reset mock state trước mỗi test
   // resetMocks: false,
 
-  // Reset the module registry before running each individual test
+  // Reset module registry trước khi chạy từng test riêng lẻ
   // resetModules: false,
 
-  // A path to a custom resolver
+  // Path đến custom resolver
   // resolver: undefined,
 
-  // Automatically restore mock state and implementation before every test
+  // Tự động restore mock state và implementation trước mỗi test
   // restoreMocks: false,
 
-  // The root directory that Jest should scan for tests and modules within
+  // Root directory Jest scan cho tests và modules
   // rootDir: undefined,
 
-  // A list of paths to directories that Jest should use to search for files in
+  // Danh sách paths đến directories Jest sử dụng để search files
   // roots: [
   //   "<rootDir>"
   // ],
 
-  // Allows you to use a custom runner instead of Jest's default test runner
+  // Cho phép sử dụng custom runner thay vì Jest default test runner
   // runner: "jest-runner",
 
-  // The paths to modules that run some code to configure or set up the testing environment before each test
+  // Paths đến modules chạy code để configure hoặc setup testing environment trước mỗi test
   // setupFiles: [],
 
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  // Danh sách paths đến modules chạy code để configure hoặc setup testing framework trước mỗi test
+  setupFilesAfterEnv: ["<rootDir>/src/tests/setup.ts"],
 
-  // The number of seconds after which a test is considered as slow and reported as such in the results.
+  // Số giây sau đó test được coi là slow và báo cáo như vậy
   // slowTestThreshold: 5,
 
-  // A list of paths to snapshot serializer modules Jest should use for snapshot testing
+  // Danh sách paths đến snapshot serializer modules Jest sử dụng cho snapshot testing
   // snapshotSerializers: [],
 
-  // The test environment that will be used for testing
+  // Test environment sẽ được sử dụng cho testing
   testEnvironment: "jsdom",
 
-  // Options that will be passed to the testEnvironment
+  // Options sẽ được pass đến testEnvironment
   // testEnvironmentOptions: {},
 
-  // Adds a location field to test results
+  // Thêm location field vào test results
   // testLocationInResults: false,
 
-  // The glob patterns Jest uses to detect test files
-  // testMatch: [
-  //   "**/__tests__/**/*.?([mc])[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
-  // ],
+  // Glob patterns Jest sử dụng để detect test files
+  testMatch: [
+    "**/__tests__/**/*.?([mc])[jt]s?(x)",
+    "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
+  ],
 
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+  // Mảng regex patterns matched với tất cả test paths, matched tests sẽ bị skip
   // testPathIgnorePatterns: [
   //   "\\\\node_modules\\\\"
   // ],
 
-  // The regexp pattern or array of patterns that Jest uses to detect test files
+  // Regex pattern hoặc array patterns Jest sử dụng để detect test files
   // testRegex: [],
 
-  // This option allows the use of a custom results processor
+  // Option cho phép sử dụng custom results processor
   // testResultsProcessor: undefined,
 
-  // This option allows use of a custom test runner
+  // Option cho phép sử dụng custom test runner
   // testRunner: "jest-circus/runner",
 
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  // Map từ regex patterns đến paths transformers
+  transform: {
+    // Sử dụng ts-jest để transform TypeScript và JSX files
+    "^.+\\.(ts|tsx)$": ["ts-jest", {
+      "tsconfig": {
+        // Cấu hình JSX để sử dụng React 17+ JSX transform
+        "jsx": "react-jsx"
+      }
+    }]
+  },
 
-  // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
+  // Mảng regex patterns matched với tất cả source file paths, matched files sẽ skip transformation
   // transformIgnorePatterns: [
   //   "\\\\node_modules\\\\",
   //   "\\.pnp\\.[^\\\\]+$"
   // ],
 
-  // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
+  // Mảng regex patterns matched với tất cả modules trước khi module loader tự động return mock
   // unmockedModulePathPatterns: undefined,
 
-  // Indicates whether each individual test should be reported during the run
+  // Chỉ định mỗi test riêng lẻ có được report trong quá trình chạy không
   // verbose: undefined,
 
-  // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
+  // Mảng regex patterns matched với tất cả source file paths trước khi re-run tests trong watch mode
   // watchPathIgnorePatterns: [],
 
-  // Whether to use watchman for file crawling
+  // Có sử dụng watchman cho file crawling không
   // watchman: true,
 };
 
