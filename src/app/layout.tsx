@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "@/store/ReduxProvider";
 import Navbar from "./components/Navbar";
+import ConfigProvider from "@/components/ui/ConfigProvider";
+import { SIZES } from "@/components/ui/utils/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +31,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ReduxProvider>
-          <Navbar/>
-          <div className="container px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 max-w-7xl mx-auto w-[100svw]">
-            {children}
-          </div>
-        </ReduxProvider>
+        <ConfigProvider value={{
+              themeColor: 'indigo',
+              direction: 'ltr',
+              mode: 'light',
+              locale: 'en',
+              primaryColorLevel: 600,
+              cardBordered: false,
+              controlSize: SIZES.MD,
+              navMode: 'light',
+        }} >
+          <ReduxProvider>
+            <Navbar />
+            <div className="container px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 max-w-7xl mx-auto w-[100svw]">
+              {children}
+            </div>
+          </ReduxProvider>
+        </ConfigProvider>
       </body>
     </html>
   );

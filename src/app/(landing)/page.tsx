@@ -7,6 +7,7 @@ import HeroSection from "./components/HeroSection";
 import IntegrationsSection from "./components/IntegrationsSection";
 import Platform from "./components/Platform";
 import Cta from "./components/Cta";
+import Footer from "./components/Footer";
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
       <IntegrationsSection/>
       <Platform/>
       <Cta/>
+      <Footer/>
     </div>
   );
 }
