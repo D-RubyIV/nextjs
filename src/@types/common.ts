@@ -36,3 +36,18 @@ export type ColorLevel =
     | 700
     | 800
     | 900
+
+export type TableQueries = {
+    total?: number
+    pageIndex?: number
+    pageSize?: number
+    query?: string
+    sort?: {
+        order: 'asc' | 'desc' | ''
+        key: string | number
+    }
+}
+
+export type DetailParamObject = {
+    uuid: string
+}
