@@ -18,7 +18,7 @@ const HeroSection = () => {
                     </div>
                     <div className="relative w-full">
                         <div
-                            className="w-[200%] md:w-[70%] overflow-hidden"
+                            className="w-[200%] md:w-[110%] overflow-hidden"
                             style={{
                                 position: 'absolute',
                                 left: '50%',
