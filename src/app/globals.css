@@ -2,6 +2,10 @@
 @import "tailwindcss";
 @import "../assets/styles/app.css";
 
+html {
+   zoom: 0.8;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

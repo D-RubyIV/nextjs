@@ -10,12 +10,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.15",
     "@reduxjs/toolkit": "^2.8.2",
     "classnames": "^2.5.1",
+    "framer-motion": "^12.23.12",
     "lodash": "^4.17.21",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
     "redux-persist": "^6.0.0",
     "swiper": "^11.2.10"

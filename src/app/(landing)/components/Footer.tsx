@@ -1,3 +1,4 @@
+import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import { Fragment } from 'react'
 
@@ -33,11 +34,11 @@ const Footer = () => {
                 </div>
                 <div className={'md:col-span-1 flex gap-2'}>
                     <Input placeholder={'Enter your email'} type={'email'} prefix={"sss"} />
-                    <button
+                    <Button
                         className="!px-4 !py-2 !bg-indigo-500 box-border border-2 !border-indigo-400 flex items-center !bg-opacity-30 !border-opacity-30"
                     >
                         Subscribe
-                    </button>
+                    </Button>
                 </div>
             </div>
 

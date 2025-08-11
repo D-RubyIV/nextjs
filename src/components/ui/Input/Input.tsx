@@ -1,17 +1,19 @@
 import { forwardRef, useState, useEffect, useMemo, useRef } from 'react'
 import classNames from 'classnames'
+import { useConfig } from '../ConfigProvider'
+import { useForm } from '../Form/context'
+import { useInputGroup } from '../InputGroup/context'
+import { CONTROL_SIZES } from '../utils/constants'
 import isEmpty from 'lodash/isEmpty'
 import isNil from 'lodash/isNil'
 import get from 'lodash/get'
+import type { CommonProps, TypeAttributes } from '@/@types/common'
 import type {
     InputHTMLAttributes,
     ElementType,
     ReactNode,
     HTMLInputTypeAttribute,
 } from 'react'
-import { CommonProps, TypeAttributes } from '@/@types/common'
-import { CONTROL_SIZES } from './utils/constants'
-import { useConfig } from './ConfigProvider'
 
 export interface InputProps
     extends CommonProps,
@@ -55,9 +57,13 @@ const Input = forwardRef<ElementType | HTMLInputElement, InputProps>(
         const [prefixGutter, setPrefixGutter] = useState(0)
         const [suffixGutter, setSuffixGutter] = useState(0)
 
-        const { themeColor, controlSize, primaryColorLevel, direction } = useConfig()
+        const { themeColor, controlSize, primaryColorLevel, direction } =
+            useConfig()
+        const formControlSize = useForm()?.size
+        const inputGroupSize = useInputGroup()?.size
 
-        const inputSize = size || controlSize
+        const inputSize =
+            size || inputGroupSize || formControlSize || controlSize
 
         const fixControlledValue = (
             val: string | number | readonly string[] | undefined
