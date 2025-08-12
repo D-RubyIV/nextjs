@@ -1,3 +1,5 @@
+"use client";
+
 import { Fragment } from 'react'
 
 const Cta = () => {
@@ -25,7 +27,7 @@ const Cta = () => {
                 <div>
                     <div className="w-full h-[300px]">
                         <div
-                            className="w-full h-[300px]"
+                            className="w-full h-[300px]  overflow-hidden"
                             style={{
                                 position: 'absolute',
                                 left: '50%',
@@ -36,7 +38,7 @@ const Cta = () => {
                                 WebkitMaskRepeat: 'no-repeat',
                             }}
                         >
-                            <div className="absolute inset-0" id="starfield" />
+                            <div className="absolute inset-0 overflow-hidden" id="starfield" />
                             <div>
                                 <video
                                     key={themeMode}
@@ -45,6 +47,7 @@ const Cta = () => {
                                     playsInline
                                     preload="auto"
                                     autoPlay={true}
+                                    className={'overflow-hidden'}
                                     style={{
                                         backgroundImage: `url('/img/q-c4fdcb46.png')`,
                                         backgroundSize: 'cover',

@@ -1,3 +1,5 @@
+"use client";
+
 import { Fragment, useEffect } from "react"
 
 const HeroSection = () => {
@@ -37,6 +39,7 @@ const HeroSection = () => {
                                     playsInline
                                     preload="auto"
                                     autoPlay={true}
+                                    className={'overflow-hidden'}
                                     style={{
                                         backgroundImage: `url('/img/q-c4fdcb46.png')`,
                                         backgroundSize: 'cover',

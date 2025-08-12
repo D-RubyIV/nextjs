@@ -4,18 +4,18 @@
 
 html {
    zoom: 0.8;
+   overflow-x: hidden;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 
   /* Thêm fonts mới */
   --font-audiowide: 'Audiowide', ui-sans-serif, system-ui;
@@ -33,6 +33,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-saira), Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
   font-size: 14px;
+  overflow-x: hidden;
 }

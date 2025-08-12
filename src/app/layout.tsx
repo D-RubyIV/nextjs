@@ -5,6 +5,9 @@ import ReduxProvider from "@/store/ReduxProvider";
 import Navbar from "./components/Navbar";
 import ConfigProvider from "@/components/ui/ConfigProvider";
 import {SIZES} from "@/components/ui/utils/constants";
+import Footer from "@/app/components/Footer";
+import React from "react";
+import Cta from "@/app/(landing)/components/Cta";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -43,8 +46,10 @@ export default function RootLayout({
                 navMode: 'light',
             }}>
                 <Navbar/>
-                <div className="container px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 max-w-7xl mx-auto w-[100svw]">
+                <div className="container px-4 sm:px-6 lg:px-8 sm:py-6 lg:py-8 max-w-7xl mx-auto w-[100svw]">
                     {children}
+                    <Cta/>
+                    <Footer/>
                 </div>
             </ConfigProvider>
         </ReduxProvider>

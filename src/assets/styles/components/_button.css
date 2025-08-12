@@ -12,5 +12,4 @@
   &.radius-none {
     @apply rounded-none;
   }
-  background-color: white !important;
 }
